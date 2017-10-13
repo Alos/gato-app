@@ -1,8 +1,8 @@
 steps:
         - name: "gcr.io/cloud-builders/go"
-          args: ["install", "github.com/{GITHUB_HANDLE}/gato-app"]
-          env: ["PROJECT_ROOT=github.com/{GITHUB_HANDLE}/gato-app"]
+          args: ["install", "github.com/Alos/gato-app"]
+          env: ["PROJECT_ROOT=github.com/Alos/gato-app"]
         - name: "gcr.io/cloud-builders/docker"
-          args: ["build", "-t", "gcr.io/{GCP_PROJECT_ID}/gato-app:$REVISION_ID", "-f", "Dockerfile", "."]
+          args: ["build", "-t", "gcr.io/cloud-releng-misery/gato-app:$REVISION_ID", "-f", "Dockerfile", "."]
           images:
-            - "gcr.io/{GCP_PROJECT_ID}/gato-app:$REVISION_ID"
+            - "gcr.io/cloud-releng-misery/gato-app:$REVISION_ID"
